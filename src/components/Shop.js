@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { ShopContext } from "../context";
 import { API_URL, API_KEY } from "../config";
+import GoodList from "./GoodList";
 import { Loader } from "./Loader";
 // import BascketList from "./BascketList";
 // import Card from "./Card";
@@ -8,7 +9,7 @@ import { Loader } from "./Loader";
 
 const Shop = () => {
   const [goods, setGoods] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(API_URL, {
@@ -37,7 +38,7 @@ const Shop = () => {
 
   return (
     <div className="Shop container">
-      {loading ? <Loader /> : <h1>Shop</h1>}
+      {loading ? <Loader /> : <GoodList goods={goods} />}
       {/* <Card quantity={order.length} />
       {loading ? <Loader /> : <GoodsList />}
       {isBascket && <BascketList />} */}
