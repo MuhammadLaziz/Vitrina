@@ -1,7 +1,9 @@
 import BascketItem from "./BascketItem";
+import { useContext } from "react";
+import { ShopContext } from "../context";
 
 export default function BascketList(props) {
-  const { order } = props;
+  const { order, handleBascketShow } = useContext(ShopContext);
 
   const totalPrice = order.reduce((sum, el) => {
     return sum + el.price * el.quantity;
@@ -12,15 +14,7 @@ export default function BascketList(props) {
         <li className="collection-item active">Bascket</li>
         {order.length ? (
           order.map((item) => {
-            return (
-              <BascketItem
-                removeFromBascket={props.removeFromBascket}
-                key={item.id}
-                {...item}
-                incrementQuantity={props.incrementQuantity}
-                decrementQuantity={props.decrementQuantity}
-              />
-            );
+            return <BascketItem key={item.id} {...item} />;
           })
         ) : (
           <li className="collection-item">Bascket is Empty</li>
@@ -28,10 +22,7 @@ export default function BascketList(props) {
         <li className="collection-item active">
           Total Price: {totalPrice} <b>$</b>
         </li>
-        <i
-          className="material-icons bascket-close"
-          onClick={props.handleBascketShow}
-        >
+        <i className="material-icons bascket-close" onClick={handleBascketShow}>
           close
         </i>
       </ul>

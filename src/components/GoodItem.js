@@ -1,5 +1,11 @@
+import {useContext} from 'react'
+import {ShopContext} from '../context'
+
 function Goodsitem (props) {
-    const {name, id, description, price, full_background, addToBascket} = props
+
+    const {addToBascket} = useContext(ShopContext)
+
+    const {name, id, description, price, full_background} = props
     return (
         <div className="card" id={id}>
             <div className="card-image">
