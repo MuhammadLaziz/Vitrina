@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import 'react-toastify/dist/react-toastify.cjs.development'
+// import 'react-toastify/dist/react-toastify.cjs.development'
 
 ReactDOM.render(
   <React.StrictMode>

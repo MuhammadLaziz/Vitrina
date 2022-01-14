@@ -1,8 +1,10 @@
 import GoodItem from "./GoodItem"
+import {useContext} from 'react'
+import {ShopContext} from '../context'
 
 
-function GoodList (props) {
-    const {goods = []} = props
+function GoodList () {
+    const {goods = []} = useContext(ShopContext)
 
     if(!goods.length) {
         <h3>Noting Found</h3>
